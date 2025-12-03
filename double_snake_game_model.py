@@ -140,3 +140,28 @@ class SnakeGameModel:
         Returns the current game model
         """
         return self._apples
+
+    def __repr__(self):
+        """
+        Prints a simple view of the game board
+        """
+        empty_space = "."
+        snake_one_body = "X"
+        snake_two_body = "O"
+        apple = "@"
+
+        output = ""
+        for row in range(self._board_height):
+            line = ""
+            for col in range(self._board_width):
+                pos = [row, col]
+                if pos in self._snake_one.locations:
+                    line += snake_one_body
+                elif pos in self._snake_two.locations:
+                    line += snake_two_body
+                elif pos in self._apples:
+                    line += apple
+                else:
+                    line += empty_space
+            output += line + "\n"
+        return output
