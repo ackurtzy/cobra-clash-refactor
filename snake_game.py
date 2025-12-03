@@ -1,4 +1,5 @@
 from double_snake_game_model import SnakeGameModel
+from snake_view import SnakeGameTextView
 
 
 def main():
@@ -6,14 +7,15 @@ def main():
     Runs a short test of the double snake game model
     """
     game = SnakeGameModel()
+    view = SnakeGameTextView(game)
 
-    print(game)
+    view.draw()
     game.move_snakes("RIGHT", "LEFT")
-    print(game)
+    view.draw()
     game.move_snakes("UP", "DOWN")
-    print(game)
+    view.draw()
     game.move_snakes("LEFT", "RIGHT")
-    print(game)
+    view.draw()
 
 
 if __name__ == "__main__":
