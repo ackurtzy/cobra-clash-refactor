@@ -2,6 +2,10 @@
 
 ## Goals
 
+As a player in this game, your goal is to eat 10 apples before your opponent
+does, but be careful to avoid running into walls, yourself, or your competitor.
+One collision and its game over!
+
 ## Unique Features
 
 ## Installation Process
