@@ -1,21 +1,16 @@
-from double_snake_game_model import SnakeGameModel
+from snake_game_model import SnakeGameModel
 from snake_view import SnakeGameTextView
+from controller import SnakeGameController
 
 
 def main():
     """
-    Runs a short test of the double snake game model
+    Runs a game of snake using the controller
     """
-    game = SnakeGameModel()
-    view = SnakeGameTextView(game)
-
-    view.draw()
-    game.move_snakes("RIGHT", "LEFT")
-    view.draw()
-    game.move_snakes("UP", "DOWN")
-    view.draw()
-    game.move_snakes("LEFT", "RIGHT")
-    view.draw()
+    model = SnakeGameModel()
+    view = SnakeGameTextView(model)
+    controller = SnakeGameController(model, view)
+    controller.run()
 
 
 if __name__ == "__main__":
