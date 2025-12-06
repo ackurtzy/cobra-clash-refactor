@@ -8,9 +8,21 @@ One collision and its game over!
 
 ## Unique Features
 
+While you might be familiar with the classic snake game, our inspired version
+includes two players. This adds more complexity as the game progresses and
+reduces the directions to turn when conflict arises.
+
 ## Installation Process
 
+to learn more about the installation process, checkout out the `README.md` file
+found in our [project repository](https://github.com/olincollege/snake-pygame).
+
 ## Attributes
+
+To help our team create and render this game, we used Pygame. Pygame is a set of
+python modules that were designed for writing video games. More information
+about this free and open-source library can be found
+[here](https://www.pygame.org/wiki/about)
 
 ## Meet the Team
 
