@@ -15,6 +15,7 @@ def main():
     game = SnakeGameModel()
     graphics = GraphicalView(game, 1400, 1050)
     controller = GraphicalController(game)
+    frame_rate = 7
 
     while True:
         controller.fetch_events()  # Update events at the start of each frame
@@ -23,7 +24,7 @@ def main():
             if True in game.snake_won():
                 game.set_game_state(3)
 
-        graphics.draw(7)
+        graphics.draw(frame_rate)
 
 
 if __name__ == "__main__":
