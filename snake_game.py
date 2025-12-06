@@ -1,21 +1,30 @@
-from double_snake_game_model import SnakeGameModel
-from snake_view import SnakeGameTextView
+"""
+Running the snake game
+"""
+
+from snake_game_model import SnakeGameModel
+from snake_game_view import GraphicalView
+from snake_game_controller import GraphicalController
 
 
 def main():
     """
-    Runs a short test of the double snake game model
+    Play a game of snake
     """
-    game = SnakeGameModel()
-    view = SnakeGameTextView(game)
 
-    view.draw()
-    game.move_snakes("RIGHT", "LEFT")
-    view.draw()
-    game.move_snakes("UP", "DOWN")
-    view.draw()
-    game.move_snakes("LEFT", "RIGHT")
-    view.draw()
+    game = SnakeGameModel()
+    graphics = GraphicalView(game, 1400, 1050)
+    controller = GraphicalController(game)
+    frame_rate = 7
+
+    while True:
+        controller.fetch_events()  # Update events at the start of each frame
+        if game.game_state == 2:
+            controller.move()
+            if True in game.snake_won():
+                game.set_game_state(3)
+
+        graphics.draw(frame_rate)
 
 
 if __name__ == "__main__":
