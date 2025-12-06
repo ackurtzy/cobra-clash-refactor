@@ -149,12 +149,14 @@ class SnakeGameModel:
         snake_one_won = False
         snake_two_won = False
 
-        if self._collision()[0] and self._collision()[1]:
+        collision_one, collision_two = self._collision()
+
+        if collision_one and collision_two:
             snake_one_won = True
             snake_two_won = True
-        elif self._collision()[1] or self._snake_one.apples_eaten == 10:
+        elif collision_two or self._snake_one.apples_eaten == 10:
             snake_one_won = True
-        elif self._collision()[0] or self._snake_two.apples_eaten == 10:
+        elif collision_one or self._snake_two.apples_eaten == 10:
             snake_two_won = True
 
         return snake_one_won, snake_two_won
