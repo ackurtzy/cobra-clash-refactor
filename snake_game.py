@@ -1,4 +1,4 @@
-from double_snake_game_model import SnakeGameModel
+from snake_game_model import SnakeGameModel
 from snake_view import SnakeGameTextView
 
 
