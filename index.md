@@ -10,6 +10,11 @@ One collision and its game over!
 
 ![](images/VideoDemo.gif)
 
+## Project Presentation
+
+Check out a brief video presentation explaining the game and overview of the
+code here: [Video Presentation](https://youtu.be/W6tHWO8c8xE)
+
 ## Unique Features
 
 While you might be familiar with the classic snake game, our inspired version
