@@ -133,6 +133,30 @@ class GraphicalView(SnakeGameView):
                 continue
             self._screen.blit(snake_body, (x_value, y_value))
 
+    def _draw_scores(self, score_snake_one, score_snake_two):
+        """
+        Draws the scores of each player onto the screen
+
+        Parameters:
+            score_snake_one: An integer representing the apples eaten by
+                snake one
+            score_snake_two: An integer representing the apples eaten by
+                snake two
+
+        Returns:
+            None
+        """
+        font = pygame.font.Font("fonts/beech.ttf", 100)
+        text_surface_one = font.render(f"{score_snake_one}", True, (0, 255, 0))
+        text_rect_one = text_surface_one.get_rect()
+        text_rect_one.center = (self._shift / 2, self._height / 2)
+        self._screen.blit(text_surface_one, text_rect_one)
+
+        text_surface_two = font.render(f"{score_snake_two}", True, (255, 0, 0))
+        text_rect_two = text_surface_two.get_rect()
+        text_rect_two.center = (self._width - self._shift / 2, self._height / 2)
+        self._screen.blit(text_surface_two, text_rect_two)
+
     def _draw_running_game(self):
         """
         Draws all the assets of the game on the screen when it is running
@@ -151,6 +175,11 @@ class GraphicalView(SnakeGameView):
 
         self._screen.blit(background, (0, 0))
         self._screen.blit(snake_map, (self._shift, 0))
+
+        self._draw_scores(
+            self._model.snake_one.apples_eaten,
+            self._model.snake_two.apples_eaten,
+        )
 
         self._draw_snake(self._model.snake_one, snake_one_body, snake_one_head)
         self._draw_snake(self._model.snake_two, snake_two_body, snake_two_head)
