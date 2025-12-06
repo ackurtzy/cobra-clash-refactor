@@ -189,11 +189,47 @@ class GraphicalView(SnakeGameView):
             y_value = apple[0] * 50 + self._in_bounds_shift
             self._screen.blit(apple_image, (x_value, y_value))
 
+    def _draw_start_screen(self):
+        """
+        Draws the starting game image on the screen
+        """
+        start_screen = pygame.image.load("images/start_screen.png")
+        self._screen.blit(start_screen, (0, 0))
+
+    def _draw_end_screen(self):
+        """
+        Draws the end game image on the screen according to which player wins
+        """
+        snake_one_wins = pygame.image.load("images/snake_one_wins.png")
+        snake_two_wins = pygame.image.load("images/snake_two_wins.png")
+        tie = pygame.image.load("images/tie.jpeg")
+        if self._model.snake_won()[0] and self._model.snake_won()[1]:
+            self._screen.blit(tie, (0, 0))
+        elif self._model.snake_won()[0]:
+            self._screen.blit(snake_one_wins, (0, 0))
+        elif self._model.snake_won()[1]:
+            self._screen.blit(snake_two_wins, (0, 0))
+
     def draw(self, frame_rate):
         """
-        Draws the board for a running game
+        Combines all the private methods and displays the screens and assets
+        according to the state of the game
+
+        Parameters:
+            frame_rate: An integer representing the frame rate at which the
+                game should run
+
+            Returns:
+                None
         """
-        self._draw_running_game()
+        clock = pygame.time.Clock()
+
+        if self._model.game_state == 1:
+            self._draw_start_screen()
+        elif self._model.game_state == 2:
+            self._draw_running_game()
+        else:
+            self._draw_end_screen()
 
         pygame.display.update()
-        pygame.time.Clock().tick(frame_rate)
+        clock.tick(frame_rate)
