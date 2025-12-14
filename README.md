@@ -1,33 +1,23 @@
-# Python Project Template Repository
+# Cobra Clash
 
-This is a template repository for a Python project. Feel free to use and edit
-this repository (including this file) for your needs. Below, find some
-instructions and tips for using this template repository.
+This repository contains the project files for our Software Design final project. We wanted to design a game inspired by the fan-favorite Snake game. This project was designed using the Model-View-Controller framework and each are contained in separate python scripts.
+
 
 ## How to Use
 
-Click on the "Use this template" button in the top right corner to create a new
-repository based on this template. If this is for a class project, we ask that
-you keep it in the `olincollege` GitHub organization, and that you refrain from
-keeping the repository private. This will ensure that relevant people can access
-your repository for assessment, etc.
+Our game "Cobra Clash" is a multiplayer game that allows each player to control their own snake using the arrow keys and WASD keys to dictate direction. The goal of each player is the collect 10 apples before their opponent while also trying to avoid hitting borders, their own tail, and their opponent. As the game progresses and players consumer more apples, their snake will grow in length, increasing the difficulty of navigating the board.
 
-## Requirements
+## How to Run
 
-The `requirements.txt` file is blank and should be filled out with any project
-dependencies. There is a Python package called `pipreqs` that autogenerates the
-contents of the `requirements.txt` file based on the `import` statements in your
-`.py` files. To get this, run
+The `requirements.txt` contains a list of dependencies and versions needed to run this program. To install these packages, run the following code in terminal.
 
 ```
-pip install pipreqs
+pip install pygame
+pip install pytest
 ```
+To run the interactive game navigate to `snake_game.py` file.
 
-Then, in the root of your project repository, run:
 
-```
-pipreqs --mode compat
-```
+## Website
 
-If you already have a `requirements.txt`, the above command will ask you to
-rerun the command with the `--force` flag to overwrite it.
+for more information about Cobra Clash, check out our website: [Click Here](https://cuddly-barnacle-kq291z5.pages.github.io/)
